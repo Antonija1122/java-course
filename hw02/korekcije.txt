@@ -1,0 +1,37 @@
+Popravci za recenziju od Antonija Filipoviæa:
+
+Ispravljena metoda toArray() za sluèaj prazne kolekcije za LinkedListIndexedCollection(). Metoda sada vraæa prazan niz. 
+
+Ispravljena metoda clear() za LinkedListIndexedCollection(). Metoda sada samo postavlja first i last na null, i postavlja size kolekcije na nulu.
+
+Dodan je Javdoc za EmptyStackDemo() iznimku.
+
+-Metoda getAngle() nije davala dobra rješenja za -i, i sada je popravljena.
+
+Dodana funkcija equals i hash() za ComplexNumber.
+
+Primjer za drugi i treci zadatak je sad u podfolderu demo.
+
+
+Popravci za recenziju od Brune Dujmoviæ:
+
+Dodana varijabla u ArrayIndexedCollection : private static final int DEFAULT_CAPACITY = 16; 
+Metoda isEmpty() prepravljena u skraæenu verziju :	return size() == 0;
+
+
+
+Popravci za recenziju od Fabijana Džape:
+
+-"bilo bi èitljivije i bolje da imaš odvojenu metodu za provjeranje indeksa." - iskreno nisam skužila na koje provjeravanje indeksa se odnosi. Ako se odnosi na provjeravanje indexa za metodu insert, get i remove ne provjeravaju se uvijek isti indexi pa mi se uèinilo jednostavnije provjerit unutar metode jer je tako oèitije što se provjerava.  
+
+-Metoda getAngle() nije davala dobra rješenja za (0,0) sada daje kut nula.
+
+
+Zajednièke zamjerke: 
+
+Dodan {@inheritDoc} u javadoc za overridane metode.
+
+Prepravljen je kod za StackDemo -> falila je System.exit(); naredba nakon uhvaæene iznimke za Invalid input pa se program raspadao u nastavku. 
+Isto tako sam ubacila switch - case naredbu za pregledniji kod i izbjegla ponavljanje koda. 
+
+
