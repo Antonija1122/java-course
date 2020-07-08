@@ -1,0 +1,6 @@
+<html>
+ <body>
+	<p><b><a href="/index2.html" target="/scripts/osnovni.smscr">Go back to home page</a></b></p>
+	<p><b>{$= "messagge" "0" @tparamGet $}</b></p>
+ </body>
+</html>
