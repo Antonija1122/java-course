@@ -1,0 +1,14 @@
+﻿Minimalni uvijeti: 
+
+Dora Marković: "Moja ocjena je 1 zato što drugi zadatak nije implementiran kako je opisano. Ne postoji nikakav query niti se koristi cjelokupna implementacija 2. zadatka. Nije ispunjen minimalni uvjet."
+
+Program je postojao ali nije bio u razredu StundentDB nego QueryImplementation.
+Moja greška. Nisam iz teksta zadatka skužila odmah da program treba biti u StudentDB pa sam program nazvala QueryImplementation. Sada sam ga prekopirala u StudentDB.
+
+
+Dodatne promjene:
+
+Promijenila sam metodu registerCommand() u LSystemBuilderImpl-u u prvom zadatku. Sada switch()-case radi nad imenom commande(npr. "rotate", "pop" itd.) ne nad characterom(npr. '+', 'F' itd.).
+
+Dodala sam još komentare u Glavni1, Glavni2, Glavni3.
+
