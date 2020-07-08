@@ -1,0 +1,60 @@
+Autumn.png
+Autumn road in the forrest
+autumn, road, forrest
+Autumn2.png
+Autumn lake 
+autumn, lake, forrest, sunset
+Autumn3.png
+Autumn kayaking on the lake 
+autumn, lake, kayaking
+Autumn4.png
+Autumn flying leaves
+autumn, leaf 
+Autumn5.png
+Autumn bench
+autumn, leaf, bench
+Spring.png
+Pink spring road in the forrest
+spring, road, forrest
+Spring2.png
+Spring camping by the river
+spring, camping
+Spring3.png
+Light caught on the lake in the evening
+spring, lake, sunset
+Spring4.png
+Pink spring road in the park
+spring, road
+Spring5.png
+Bench in the park in the spring
+spring, road, bench
+Summer.png
+Summer beach 
+summer, beach
+Summer2.png
+Camping in the forrest in the summer
+summer, sunset, camping, forrest
+Summer3.png
+Summer lake 
+summer, lake
+Summer4.png
+Summer beach 
+summer, beach
+Summer5.png
+Summer road
+summer, road
+Winter.png
+Winter road covered in snow
+winter, road
+Winter2.png
+Frozen blue lake in the winter
+winter, lake, forrest
+Winter3.png
+Night village light caught in the mountins in the winter
+winter, night
+Winter4.png
+Bench in the park during the sunset
+winter, sunset, bench
+Winter5.png
+Boats in the lake in the winter
+winter, sunset, kayaking, lake

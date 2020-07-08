@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Dodajmo jQuery biblioteku... -->
+
+<meta charset="UTF-8">
+<title>Galerija</title>
+
+<style>
+	h1 {font-style: italic; text-align: center; color: #154360}
+
+	img.box {
+	 	border: 1px solid #ddd;
+	  	border-radius: 4px;
+	 	padding: 5px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		width: 150px;
+		heigth: 150px;
+		display: inline-block;
+		background-color: white   ;
+  		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	
+	img.bigger {
+	 	border: 1px solid #ddd;
+	  	border-radius: 8px;
+	  	border-color : #85C1E9 ;
+	 	padding: 5px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: auto;
+	 	margin-right: auto;
+		width: 75%;
+		heigth: 75%;
+		display: block;
+		background-color: white;
+  		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	
+	button.shape {
+	 	border: 3px solid #ddd;
+	 	border-color : #85C1E9 ; 
+	 	background-color: #FCF3CF;
+	  	border-radius: 50%;
+	  	font-weight: bold;
+	 	padding: 10px;
+	 	margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		display: inline-block;
+	} 
+	
+	button:HOVER {font-style: italic; color: blue;}
+	
+	.info {
+		font-size : 1.5em;
+		font-style: oblique; 
+		text-align: center;
+	}
+	
+	.message {
+		color: #154360;
+		font-size : 1.3em;
+		font-style: italic; 
+		text-align: center;
+	}
+	
+	.link {
+		font-weight: bold;
+		font-style: italic; 
+		text-align: center;
+		display: inline-block;
+	}
+	
+	.link :hover{ color: blue; }
+		
+	.tag {
+		font-size : 1.3em;
+		font-weight: bold;
+		font-style: italic; 
+		text-align: center;
+		display: list-item;
+	}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/htmlescaping.js"></script>
+<script type="text/javascript">
+	// vidi: http://www.w3schools.com/ajax/default.asp
+
+	var currentTag=null;
+	var currentName=null;
+	
+		$(document)
+	    .ready(
+	        function() {
+	            $.ajax({
+	                url: "rest/tags",
+	                data: {
+	                    dummy: Math.random()
+	                },
+	                dataType: "json",
+	                success: function(data) {
+	                    var results = data; // već je JSON zbog dataType gore...
+	                    var html = "";
+	                    if (results.tags.length == 0) {
+	                        html = "Nema tagova..."
+	                    } else {
+	                        for (var i = 0; i < results.tags.length; i++) {
+	                            html += "<button value=" +
+	                                results.tags[i] +
+	                                " onclick='prikaziThumb(this.value);' class='shape'>" +
+	                                results.tags[i] +
+	                                "</button>"
+	                        }
+	                    }
+	                    $("#tags").html(html);
+	                }
+	            });
+	        });
+	
+		function prikaziThumb(tag) {
+			currentTag=tag;
+			currentName=null;
+		    $.ajax({
+		        url: "rest/tags/images/" + tag,
+		        data: {
+		            dummy: Math.random()
+		        },
+		        dataType: "json",
+		        success: function(data) {
+		            var pictures = data; // već je JSON zbog dataType gore...
+		            var html = "";
+		            if (pictures.names.length == 0) {
+		                html = "Nema rezultata..."
+		            } else {
+		                for (var i = 0; i < pictures.names.length; i++) {
+		                    html += "<img src=servlets/thumb?name=" +
+		                        pictures.names[i] + " id=" +
+		                        pictures.names[i] +
+		                        " class='box' onclick='getInfo(this.id)' />";
+		                }
+		            }
+		            $("#thumbnails").html(html);
+		            $("#fullSize").html("");
+		        }
+		    });
+		}
+		
+		function getInfo(name) {
+			var curUrl="rest/tags/info/" + name + "/"+ currentTag;
+			fullSize=null;
+		    $.ajax({
+		        url: curUrl,
+		        data: {
+		            dummy: Math.random()
+		        },
+		        dataType: "json",
+		        success: function(data) {
+		            var restData = data; // već je JSON zbog dataType gore...
+		            var html = "";
+		            html += "<img src=servlets/fullImage?name=" + name + " class='bigger' />";
+		            
+		            html += "<p><div class='info'> <div class='link'><a onclick='getInfo(this.id);' id=" + restData.prev + " href='#'> Prethodna slika... 	  </a></div> " 
+		            + restData.desc 
+		            + "<div class='link'><a onclick='getInfo(this.id);' id=" + restData.next + " href='#'> ...Sljedeca slika</a></div>  </div></p>"
+		            for (var i = 0; i < restData.tags.length; i++) {
+		
+		                html += "<div class='tag' >#" +restData.tags[i] +"</div>"
+		            }
+		            $("#fullSize").html(html);
+		        }
+		    });
+		}
+</script>
+
+
+</head>
+<body style="background-color: #D6EAF8;  ">
+
+	<h1>Dobrodosli u moju prvu galeriju</h1>
+
+	<p><div class="message">Izaberite temu slika koje želite vidjeti...</div></p>
+
+	<div id="tags">&nbsp;</div>
+	<div id="thumbnails">&nbsp;</div>
+	<div id="fullSize">&nbsp;</div>
+</body>
+</html>
