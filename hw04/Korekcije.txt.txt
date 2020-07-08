@@ -1,0 +1,57 @@
+Zajedničke primjedbe:
+
+Obrisani su komentari koji su bili viška. 
+Popravljen 3. zadatak. Sada Vector2D predstavlja radijvektor.
+
+
+Remove u prvom zadatku prima Object value. 
+U metodi toArray fja sada vraća Object[]. 
+
+Popravljena metoda containsKey(key) ->sada metoda get() koja je pozivana u tom metodi provjerava je li unput key null ako je vraća null;
+Popravljena je i metoda containsValue() -> više ne puca ako mapa sadrži null;
+
+
+Razlog zašto nisam koristila put() metodu u realocate-u:
+
+	- put() metoda stvara novi element svaki put kada je pozvana, a u zadatku piše da se ne stvaraju novi elementi nepotrebno nego da se samo s referencama radi, 
+		Zbog toga imam posebnu metodu realocate koja samo s referencama radi i ne stvara nikakve nove objekte osim nove tablice. 
+
+
+
+Pojedinačne primjedbe:
+
+Karlić, Luka:
+U 4. zadatku iterator više ne prima referencu na table[] nego izravno ide po tablici. Isto tako je maknut pairToRemove jer je isti kao current; 
+
+Citiram: "Takoder, nakon micanja elemenata iz unutarnjeg razreda treba azurirati savedModCount." -> funkcija to već radi 
+
+
+
+Kovač, Petar:
+
+addAll() i addAllSatisfying() sada primaju Collection<? extends T>;
+
+4. zad:
+Izbačeno je računanje inicijalnog size-a tablice iz konstruktora u posebnu metodu 
+
+
+
+
+Kolka Vedran:
+
+U 2. zadatku metoda put() sada koristi contains(). 
+
+U 3. zadatku koristim copy() za stvaranje novih vektora pa nakon toga koristim već gotove metode za translated, rotated, scaled.. . 
+
+U 4. zadatku : Citiram tvoju primjedbu: " Cijela ideja hashtable-a je da ne moraš iterirati po cijeloj tablici da bi našla nešto, nego izračunaš gdje se
+  nalazi i tražiš direktno u tom slotu, ovo je rušenje cijelog koncepta tablice, kao da izmisliš žlicu za juhu i onda
+  ju ipak jedeš vilicom."
+  Metoda get upravo to i radi ali ocito to nisi vidio.
+
+Prepravljena je metoda puInTableBoolean(), sada prima samo novi objekt i vraća true ako je dodan novi objekt, false ako je stari pregažen. 
+Također je preglednije napisana, bilo je par linija nepotrebnih koje su izbrisane sad. 
+
+Citiram : "Tko je trljao pire krumpir u kosu?" -> Ne razumijem primjedbu. 
+
+	
+
