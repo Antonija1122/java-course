@@ -1,0 +1,6 @@
+Ibiza	https://www.tripadvisor.com/Tourism-g187460-Ibiza_Balearic_Islands-Vacations.html
+Dubrovnik	https://www.telegraph.co.uk/travel/destinations/europe/croatia/dubrovnik/articles/dubrovnik-attractions/
+Mykonos	https://www.mykonosgreece.net/
+Venice	http://www.where-venice.com/
+Cuba	https://www.cubatravel.cu/en/destinations/havana-cuba
+Cancun	https://www.visitmexico.com/en/main-destinations/quintana-roo/cancun
